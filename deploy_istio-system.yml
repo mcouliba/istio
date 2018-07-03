@@ -1,0 +1,14 @@
+---
+- name: Deployment of istio-system (Openshift)
+  hosts: localhost
+  gather_facts: yes
+  run_once: true
+  vars:
+    user_openshift: ocpAdmin
+    openshift_cli: /usr/local/bin/oc
+    istio_version: 0.8.0
+    istio_options:
+  tasks:
+    - name: Deploy istio-system
+      include_role:
+        name: istio-system
